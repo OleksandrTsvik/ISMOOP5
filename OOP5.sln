@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppDelegateAndClassBook", "ConsoleAppDelegate\ConsoleAppDelegateAndClassBook.csproj", "{434E7B14-A099-49E6-992B-E75D0F332916}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{434E7B14-A099-49E6-992B-E75D0F332916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434E7B14-A099-49E6-992B-E75D0F332916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434E7B14-A099-49E6-992B-E75D0F332916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434E7B14-A099-49E6-992B-E75D0F332916}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E07501C-F28A-404A-8DE3-890C76638004}
+	EndGlobalSection
+EndGlobal
