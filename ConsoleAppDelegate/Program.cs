@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using ConsoleAppDelegate;
 
 public delegate double MathematicalFunctions(double x);
-public delegate bool SortingBooks(Book firstBook, Book secondBook);
 delegate void ShowEquation(string message);
 
 namespace ConsoleAppDelegate
@@ -38,49 +37,45 @@ namespace ConsoleAppDelegate
             //equation("|x^2-5| / (x-5)");
             //TabulationFunctions.Tabulate(-20000, 20000, 0.01, Func2);
 
-            Console.WriteLine("\tВведені дані");
-            ContainerBooks containerBooks;
-            containerBooks = new ContainerBooks(new Book("Джури козака Швайки", "ВОЛОДИМИР РУТКІВСЬКИЙ", "А-ба-ба-га-ла-ма-га"));
-            containerBooks = new ContainerBooks(new Book("Не-мов-ля", "ВІКТОРІЯ НІКОЛЕНКО", "Моя книжкова полиця"));
-            containerBooks = new ContainerBooks(new Book("Снігова королева", "ГАНС КРІСТІАН АНДЕРСЕН", "А-ба-ба-га-ла-ма-га"));
-            containerBooks = new ContainerBooks(new Book("Крута Архітектура", "САЙМОН АРМСТРОНҐ", "Моя книжкова полиця"));
-            containerBooks = new ContainerBooks(new Book("Задивляюсь у твої зіниці", "ВАСИЛЬ СИМОНЕНКО", "А-ба-ба-га-ла-ма-га"));
-            containerBooks = new ContainerBooks(new Book("Повернення в Портленд", "ГРИГОРІЙ ГУСЕЙНОВ", "Ярославів Вал"));
-            containerBooks = new ContainerBooks(new Book("Українська народна іграшка", "ЛЮДМИЛА ГЕРУС", "Балтія-Друк"));
-            containerBooks = new ContainerBooks(new Book("Тореадори з Васюківки", "ВСЕВОЛОД НЕСТАЙКО", "А-ба-ба-га-ла-ма-га"));
-            containerBooks = new ContainerBooks(new Book("Ukraine - nature, traditions, culture. Англійською мовою", "ОЛЕКСАНДР БІЛОУСЬКО", "Балтія-Друк"));
-            containerBooks = new ContainerBooks(new Book("Неймовірні пригоди Івана Сили", "ОЛЕКСАНДР ГАВРОШ", "А-ба-ба-га-ла-ма-га"));
-            containerBooks = new ContainerBooks(new Book("Крута Фізика", "САРА ГАТТОН", "Моя книжкова полиця"));
-            containerBooks = new ContainerBooks(new Book("Аніча. Все йде, все минає", "ЛЮДМИЛА ЯСНА", "Ярославів Вал"));
-            containerBooks = new ContainerBooks(new Book("Життя та дивовижні пригоди козака Миколи на безлюдному острові", "ІГОР ФЕДІВ", "Ярославів Вал"));
-            containerBooks = new ContainerBooks(new Book("Таємна перлина", "ЮРІЙ ЛОГВИН", "Ярославів Вал"));
-            containerBooks = new ContainerBooks(new Book("The Motherlode", "Clover Hope", "Abrams Books"));
+            ContainerBooks containerBooks = new ContainerBooks();
+            containerBooks.AddBook(new Book("Джури козака Швайки", "ВОЛОДИМИР РУТКІВСЬКИЙ", "А-ба-ба-га-ла-ма-га"));
+            containerBooks.AddBook(new Book("Не-мов-ля", "ВІКТОРІЯ НІКОЛЕНКО", "Моя книжкова полиця"));
+            containerBooks.AddBook(new Book("Снігова королева", "ГАНС КРІСТІАН АНДЕРСЕН", "А-ба-ба-га-ла-ма-га"));
+            containerBooks.AddBook(new Book("Крута Архітектура", "САЙМОН АРМСТРОНҐ", "Моя книжкова полиця"));
+            containerBooks.AddBook(new Book("Задивляюсь у твої зіниці", "ВАСИЛЬ СИМОНЕНКО", "А-ба-ба-га-ла-ма-га"));
+            containerBooks.AddBook(new Book("Повернення в Портленд", "ГРИГОРІЙ ГУСЕЙНОВ", "Ярославів Вал"));
+            containerBooks.AddBook(new Book("Українська народна іграшка", "ЛЮДМИЛА ГЕРУС", "Балтія-Друк"));
+            containerBooks.AddBook(new Book("Тореадори з Васюківки", "ВСЕВОЛОД НЕСТАЙКО", "А-ба-ба-га-ла-ма-га"));
+            containerBooks.AddBook(new Book("Ukraine - nature, traditions, culture. Англійською мовою", "ОЛЕКСАНДР БІЛОУСЬКО", "Балтія-Друк"));
+            containerBooks.AddBook(new Book("Неймовірні пригоди Івана Сили", "ОЛЕКСАНДР ГАВРОШ", "А-ба-ба-га-ла-ма-га"));
+            containerBooks.AddBook(new Book("Крута Фізика", "САРА ГАТТОН", "Моя книжкова полиця"));
+            containerBooks.AddBook(new Book("Аніча. Все йде, все минає", "ЛЮДМИЛА ЯСНА", "Ярославів Вал"));
+            containerBooks.AddBook(new Book("Життя та дивовижні пригоди козака Миколи на безлюдному острові", "ІГОР ФЕДІВ", "Ярославів Вал"));
+            containerBooks.AddBook(new Book("Таємна перлина", "ЮРІЙ ЛОГВИН", "Ярославів Вал"));
+            containerBooks.AddBook(new Book("The Motherlode", "Clover Hope", "Abrams Books"));
             Book book = new Book("Java in 24 Hours, Sams Teach Yourself (Covering Java 9), 8th Edition", "Rogers Cadenhead", "Sams Publishing");
-            containerBooks = new ContainerBooks(book);
+            containerBooks.AddBook(book);
             book = new Book("Wrapped in Rain", "Charles Martin", "Thomas Nelson");
-            containerBooks = new ContainerBooks(book);
+            containerBooks.AddBook(book);
 
-            ContainerBooks.PrintContainer();
+            Console.WriteLine("\tВведені дані");
+            containerBooks.PrintContainer();
 
-            // сортування за спаданням - book1.X.CompareTo(book2.X) == -1
-            // сортування за зростанням - book1.X.CompareTo(book2.X) == 1
-            // де X - це GetAuthor(), або GetBookTitle(), або GetPublishingHouse()
-
-            ContainerBooks.Sort((book1, book2) => book1.GetAuthor().CompareTo(book2.GetAuthor()) == -1);
+            containerBooks.Sort(ContainerBooks.CompareByAuthor, ContainerBooks.Order.Descending);
             Console.WriteLine("\tСортування по полю Author за спаданням");
-            ContainerBooks.PrintContainer();
+            containerBooks.PrintContainer();
 
-            ContainerBooks.Sort((book1, book2) => book1.GetBookTitle().CompareTo(book2.GetBookTitle()) == 1);
+            containerBooks.Sort(ContainerBooks.CompareByBookTitle, ContainerBooks.Order.Ascending);
             Console.WriteLine("\tСортування по полю BookTitle за зростанням");
-            ContainerBooks.PrintContainer();
+            containerBooks.PrintContainer();
 
-            ContainerBooks.Sort((book1, book2) => book1.GetPublishingHouse().CompareTo(book2.GetPublishingHouse()) == -1);
+            containerBooks.Sort(ContainerBooks.CompareByPublishingHouse, ContainerBooks.Order.Descending);
             Console.WriteLine("\tСортування по полю PublishingHouse за спаданням");
-            ContainerBooks.PrintContainer();
+            containerBooks.PrintContainer();
 
-            ContainerBooks.Sort((book1, book2) => book1.GetAuthor().CompareTo(book2.GetAuthor()) == 1);
+            containerBooks.Sort(ContainerBooks.CompareByAuthor);
             Console.WriteLine("\tСортування по полю Author за зростанням");
-            ContainerBooks.PrintContainer();
+            containerBooks.PrintContainer();
         }
 
         public static double Func1(double x)

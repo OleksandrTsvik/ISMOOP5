@@ -34,7 +34,7 @@ namespace ConsoleAppDelegate
 
         public void SetBookTitle(string bookTitle)
         {
-            if (bookTitle.Length >= 3)
+            if (bookTitle.Length >= 1)
                 BookTitle = bookTitle;
             else
                 BookTitle = "Unknown";
@@ -42,7 +42,7 @@ namespace ConsoleAppDelegate
 
         public void SetAuthor(string author)
         {
-            if (author.Length >= 3)
+            if (author.Length >= 1)
                 Author = author;
             else
                 Author = "Unknown";
@@ -50,7 +50,7 @@ namespace ConsoleAppDelegate
 
         public void SetPublishingHouse(string publishingHouse)
         {
-            if (publishingHouse.Length >= 3)
+            if (publishingHouse.Length >= 1)
                 PublishingHouse = publishingHouse;
             else
                 PublishingHouse = "Unknown";

@@ -4,3 +4,4 @@ C:\Users\pastu\Documents\Programming projects\ISM\TASK №11\OOP5\ConsoleAppDele
 C:\Users\pastu\Documents\Programming projects\ISM\TASK №11\OOP5\ConsoleAppDelegate\obj\Debug\ConsoleAppDelegateAndClassBook.csproj.CoreCompileInputs.cache
 C:\Users\pastu\Documents\Programming projects\ISM\TASK №11\OOP5\ConsoleAppDelegate\obj\Debug\ConsoleAppDelegate.exe
 C:\Users\pastu\Documents\Programming projects\ISM\TASK №11\OOP5\ConsoleAppDelegate\obj\Debug\ConsoleAppDelegate.pdb
+C:\Users\pastu\Documents\Programming projects\ISM\TASK №11\OOP5\ConsoleAppDelegate\obj\Debug\ConsoleAppDelegateAndClassBook.csprojAssemblyReference.cache
